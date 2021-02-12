@@ -20,13 +20,15 @@ namespace Core.DataAccess.EntityFramework
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }
-        }
+        }   
+
 
         public void Delete(Expression<Func<TEntity, bool>> filter)
         {
-            using(TContext context = new TContext())
+            using (TContext context = new TContext())
             {
-                context.Set<TEntity>().Remove(context.Set<TEntity>().FirstOrDefault(filter));
+                context.Set<TEntity>().Remove(context.Set<TEntity>().SingleOrDefault(filter));
+                context.SaveChanges();
             }
         }
 

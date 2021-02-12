@@ -3,6 +3,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -14,29 +15,30 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
+
         public void Add(Brand brand)
         {
-            throw new NotImplementedException();
+            _brandDal.Add(brand);
         }
 
         public void Delete(int brandId)
         {
-            throw new NotImplementedException();
+            _brandDal.Delete(p => p.BrandID == brandId);
         }
 
         public List<Brand> GetAll()
         {
-            throw new NotImplementedException();
+            return _brandDal.GetAll().ToList();
         }
 
         public Brand GetById(int id)
         {
-            throw new NotImplementedException();
+            return _brandDal.Get(p => p.BrandID == id); 
         }
 
         public void Update(Brand brand)
         {
-            throw new NotImplementedException();
+            _brandDal.Update(brand);
         }
     }
 }
