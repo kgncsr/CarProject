@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constant;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Concrete.CDto;
@@ -17,19 +19,55 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<DtoCarDetail> GetCarDetail()
+        public IResult Add(Car car)
         {
-            throw new NotImplementedException();
+            if(car.DailyPrice>0 && car.Descriptions.Length > 3)
+            {
+                _carDal.Add(car);
+                return new SuccessResult(Messages.CarAdded);
+            }else
+            {
+                return new ErrorResult(Messages.CarDidntAdded);
+            }
+
         }
 
-        public List<Car> GetCarsByBrandId(int brandId)
+        public IResult Delete(int id)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(p => p.CarID == id);
+            return new ErrorResult(Messages.CarDeleted);
         }
 
-        public List<Car> GetCarsByColorId(int colorId)
+        public IDataResult<List<Car>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
+        }
+
+        public IDataResult<Car> GetById(int id)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.CarID == id)); 
+        }
+
+        public IDataResult<List<DtoCarDetail>> GetCarDetail()
+        {
+            return new SuccessDataResult<List<DtoCarDetail>>(_carDal.GetCarDetails());
+        }
+
+        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.BrandID == brandId));
+        }
+
+        public IDataResult<List<Car>> GetCarsByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorID == colorId));
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
+
         }
     }
 }
