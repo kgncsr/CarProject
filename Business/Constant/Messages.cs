@@ -19,7 +19,7 @@ namespace Business.Constant
         public static string BrandUpdated = "Color Güncellendi";
         public static string BrandDeleted = "Color Silindi";
 
-        public static string NoRecord = "Böle bir kayıt yok";
+    
 
         public static string CustomerAdded = "Müsteri Eklendi";
         public static string CustomerDeleted = "Müsteri Silindi";
@@ -29,6 +29,10 @@ namespace Business.Constant
         public static string UserDeleted = "Müsteri Silindi";
         public static string UserUpdated = "Müsteri Güncellendi";
 
-
+        public static string RentalUnavailable = "Araba meşgul";
+        public static string NoRecord = "Böle bir kayıt yok";
+        public static string RentalAdded = "Araç Kiralandı (Rental tablosuna eklendi)";
+        public static string RentalDeleted = "Araç Rentaldan Silindi.";
+        public static string RentalUpdated = "Güncellendi";
     }
 }

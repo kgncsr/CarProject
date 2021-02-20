@@ -1,11 +1,12 @@
-﻿using System;
-using Core.DataAccess.EntityFramework;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Entities.Concrete;
-using DataAccess.Abstract;
 
-namespace DataAccess.Concrete.EntityFramework
+namespace DataAccess.EntityFramework.Concrete
 {
     public class EfCustomerDal : EfEntityRepositoryBase<Customer,CarContext>,ICustomerDal
     {
