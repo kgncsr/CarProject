@@ -28,20 +28,6 @@ namespace Business.Concrete
              return new SuccessResult(Messages.RentalAdded);
         }
 
-        public IResult Delete(int id)
-        {
-            var result = _rentalDal.Get(p => p.RentalID == id);
-            if(result == null)
-            {
-                return new ErrorResult(Messages.NoRecord);
-            }
-            if (result.ReturnDate == null)
-            {
-                return new ErrorResult(Messages.RentalUnavailable);
-            }
-            _rentalDal.Delete(p => p.RentalID == id);
-            return new SuccessResult(Messages.RentalDeleted);
-        }
 
         public IDataResult<List<Rental>> GetAll()
         {

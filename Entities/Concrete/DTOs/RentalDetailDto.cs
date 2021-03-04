@@ -10,6 +10,7 @@ namespace Entities.Concrete.DTOs
         public int Id { get; set; }
         public string Description { get; set; }
         public string CompanyName { get; set; }
+        public string UserName { get; set; }
         public DateTime RentDate { get; set; }
         public DateTime? ReturnDate { get; set; }
         public decimal DailyPrice { get; set; }

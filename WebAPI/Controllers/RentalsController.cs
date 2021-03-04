@@ -73,16 +73,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            var result = _rentalService.Delete(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
-        }
+
 
     }
 }

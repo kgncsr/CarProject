@@ -23,11 +23,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CustomerAdded);
         }
 
-        public IResult Delete(int id)
-        {
-            _customerDal.Delete(p => p.UserId == id);
-            return new SuccessResult(Messages.CustomerDeleted);
-        }
 
         public IDataResult<List<Customer>> GetAll()
         {

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constant
@@ -16,7 +18,7 @@ namespace Business.Constant
         public static string ColorDeleted = "Color Silindi";
 
         public static string BrandAdded = "Color Eklendi";
-        public static string BrandUpdated = "Color Güncellendi";
+        public static string BrandUpdated = "Brand Güncellendi";
         public static string BrandDeleted = "Color Silindi";
 
     
@@ -34,5 +36,13 @@ namespace Business.Constant
         public static string RentalAdded = "Araç Kiralandı (Rental tablosuna eklendi)";
         public static string RentalDeleted = "Araç Rentaldan Silindi.";
         public static string RentalUpdated = "Güncellendi";
+
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string PasswordError = "Sifre hatalı";
+        public static string SuccesfulLogin = "Sisteme Giriş Başarılı";
+        public static string UserAlreadyExist = "Kullanıcı Mevcut";
+        public static string UserRegistered = "Kullanıcı basarıyla kaydedildi";
+        public static string AccessTokenCreated = "Access token basarıyla olusturuldu";
+        public static string AuthorizationDenied = "Yetkiniz yok"; 
     }
 }

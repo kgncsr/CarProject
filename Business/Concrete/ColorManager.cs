@@ -27,10 +27,10 @@ namespace Business.Concrete
 
         }
 
-        public IResult Delete(int colorId)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(p => p.ColorID== colorId);
-            return new SuccessResult(Messages.ColorDeleted);
+            _colorDal.Delete(color);
+            return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public IDataResult<List<Color>> GetAll()

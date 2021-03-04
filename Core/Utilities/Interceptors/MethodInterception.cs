@@ -5,13 +5,12 @@ using System.Text;
 
 namespace Core.Utilities.Interceptors
 {
-    public class MethodInterception : MethodInterceptionBaseAttribute
+    public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
-        public virtual void OnBefore(IInvocation invocation) { }
-        public virtual void OnAfter(IInvocation invocation) { }
-        public virtual void OnSucces(IInvocation invocation) { }
-        public virtual void OnException(IInvocation invocation, System.Exception e) { }
-
+        protected virtual void OnBefore(IInvocation invocation) { }
+        protected virtual void OnAfter(IInvocation invocation) { }
+        protected virtual void OnException(IInvocation invocation, System.Exception e) { }
+        protected virtual void OnSuccess(IInvocation invocation) { }
         public override void Intercept(IInvocation invocation)
         {
             var isSuccess = true;
@@ -30,12 +29,11 @@ namespace Core.Utilities.Interceptors
             {
                 if (isSuccess)
                 {
-                    OnSucces(invocation);
+                    OnSuccess(invocation);
                 }
-                OnAfter(invocation);
             }
-
+            OnAfter(invocation);
         }
-
     }
+
 }
