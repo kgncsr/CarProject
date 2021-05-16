@@ -1,3 +1,1 @@
-
-
-Car rental backend
+Araba kiralama uygulaması backendi.
